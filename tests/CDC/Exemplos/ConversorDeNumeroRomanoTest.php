@@ -36,4 +36,32 @@ class ConversorDeNumeroRomanoTest extends PHPUnit
         $numero = $romano->converte('XXII');
         $this->assertEquals(22, $numero);
     }
+
+    public function testDeveEntenderOSimboloIX()
+    {
+        $romano = new ConversorDeNumeroRomano;
+        $numero = $romano->converte('IX');
+        $this->assertEquals(9, $numero);
+    }
+
+    public function testDeveEntenderOSimboloXXIV()
+    {
+        $romano = new ConversorDeNumeroRomano;
+        $numero = $romano->converte('XXIV');
+        $this->assertEquals(24, $numero);
+    }
+
+    public function testDeveEntenderOSimboloDXX()
+    {
+        $romano = new ConversorDeNumeroRomano;
+        $numero = $romano->converte('DXX');
+        $this->assertEquals(520, $numero);
+    }
+
+    public function testDeveEntenderOSimboloIM()
+    {
+        $romano = new ConversorDeNumeroRomano;
+        $numero = $romano->converte('IM');
+        $this->assertEquals(999, $numero);
+    }
 }
