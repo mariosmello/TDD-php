@@ -7,7 +7,6 @@ class ConversorDeNumeroRomano
 
     protected $tabela = array(
         "I" => 1,
-        "II" => 2,
         "V" => 5,
         "X" => 10,
         "L" => 50,
@@ -19,10 +18,15 @@ class ConversorDeNumeroRomano
     public function converte($numeroEmRomano)
     {
 
-        if (array_key_exists($numeroEmRomano, $this->tabela)) {
-            return $this->tabela[$numeroEmRomano];
+        $acumulador = 0;
+
+        for ($i=0; $i < strlen($numeroEmRomano); $i++) {
+            $numeroCorrente = $numeroEmRomano[$i];
+            if (array_key_exists($numeroCorrente, $this->tabela)) {
+                $acumulador += $this->tabela[$numeroCorrente];
+            }
         }
 
-        return 0;
+        return $acumulador;
     }
 }
